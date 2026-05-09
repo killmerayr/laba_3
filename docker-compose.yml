@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # Web-сервер
+  web_server:
+    image: nginx:latest
+    container_name: nstu_web_lab
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d
+      - ./nginx/certs:/etc/nginx/ssl
+      - ./www:/usr/share/nginx/html
+    restart: always
+ 
+  # FTP
+  ftp_basic:
+    image: fauria/vsftpd
+    container_name: nstu_ftp_basic
+    ports:
+      - "21:21"
+      - "21000-21010:21000-21010"
+    environment:
+      - FTP_USER=ftpuser
+      - FTP_PASS=pass
+      - PASV_MIN_PORT=21000
+      - PASV_MAX_PORT=21010
+      - PASV_ADDRESS=127.0.0.1
+    volumes:
+      - ./ftp/data:/home/vsftpd/ftpuser
+    restart: always
+
+  # SFTP 
+  sftp_secure:
+    image: atmoz/sftp
+    container_name: nstu_sftp_secure
+    ports:
+      - "2222:22" 
+    command: ftpuser:pass:1001
+    volumes:
+      - ./ftp/data:/home/ftpuser/upload
+    restart: always

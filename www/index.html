@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Безопасность Мероприятий</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        header h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            color: #666;
+            font-size: 1.1em;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card h2 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .card ul {
+            list-style: none;
+            color: #555;
+            line-height: 1.8;
+        }
+        
+        .card li:before {
+            content: "✓ ";
+            color: #764ba2;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+        
+        footer {
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
+        }
+        
+        .secure-badge {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+            color: #27ae60;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+            header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔒 Система Безопасности Мероприятий</h1>
+            <p>Интегрированное решение для защиты внутренних и внешних событий</p>
+        </header>
+        
+        <div class="content">
+            <div class="card">
+                <h2>🏢 Внутренняя Безопасность</h2>
+                <ul>
+                    <li>Контроль доступа в помещения</li>
+                    <li>Видеонаблюдение и мониторинг</li>
+                    <li>Система оповещения и эвакуации</li>
+                    <li>Проверка и аккредитация участников</li>
+                    <li>Безопасность VIP-зон</li>
+                    <li>Контроль перемещения объектов</li>
+                </ul>
+                <span class="badge">Уровень 3 (Высокий)</span>
+            </div>
+            
+            <div class="card">
+                <h2>🌍 Внешняя Безопасность</h2>
+                <ul>
+                    <li>Периметральная защита территории</li>
+                    <li>Управление потоками посетителей</li>
+                    <li>Разграничение зон доступа</li>
+                    <li>Взаимодействие с органами МВД</li>
+                    <li>Координация с аварийными службами</li>
+                    <li>Мониторинг техники и инвентаря</li>
+                </ul>
+                <span class="badge">Уровень 3 (Высокий)</span>
+            </div>
+            
+            <div class="card">
+                <h2>🔐 Технические Меры</h2>
+                <ul>
+                    <li>Шифрование данных (HTTPS/TLS)</li>
+                    <li>Аутентификация и авторизация</li>
+                    <li>Резервное копирование систем</li>
+                    <li>Защита от DDoS атак</li>
+                    <li>Аудит и логирование событий</li>
+                    <li>Регулярное обновление ПО</li>
+                </ul>
+                <span class="badge">Сертифицировано</span>
+            </div>
+            
+            <div class="card">
+                <h2>👥 Управление Персоналом</h2>
+                <ul>
+                    <li>Обучение команды безопасности</li>
+                    <li>Инструктаж перед мероприятием</li>
+                    <li>Назначение ответственных лиц</li>
+                    <li>План экстренной эвакуации</li>
+                    <li>Постоянный контакт с командой</li>
+                    <li>Разбор инцидентов и улучшения</li>
+                </ul>
+                <span class="badge">Обязательно</span>
+            </div>
+        </div>
+        
+        <div class="secure-badge">
+            ✓ Соединение защищено (HTTPS с самоподписанным сертификатом)
+        </div>
+        
+        <footer>
+            <p>&copy; 2026 Центр Безопасности. Все права защищены.</p>
+        </footer>
+    </div>
+</body>
+</html>
