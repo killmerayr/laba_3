@@ -1,2 +1,6 @@
 test_get.txt
 test_get_sftp.txt
+mail/mail-state/
+mail/mail-logs/
+mail/config/ssl/
+ftp/data/
