@@ -26,7 +26,21 @@ services:
     volumes:
       - ./ftp/data:/home/vsftpd/ftpuser
     restart: always
-
+    
+  ##GUI
+  filebrowser:
+    image: filebrowser/filebrowser:latest
+    container_name: nstu_ftp_facade
+    ports:
+      - "8080:80"
+    volumes:
+      - ./ftp/data:/srv
+      - ./ftp/fb_data:/database
+    environment:
+      - FB_DATABASE=/database/filebrowser.db
+      - FB_ROOT=/srv
+    restart: always
+  
   sftp_secure:
     image: atmoz/sftp
     container_name: nstu_sftp_secure
