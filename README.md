@@ -1,18 +1,13 @@
-Предварительно сгенерить ключи:
-
 ```bash
-ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""
+chmod +x lab.sh
 ```
 
-```bash
-chmod +x ssh/setup-ssh.sh
-chmod +x mail/setup-mail.sh
+Команды:
 
-docker compose up -d
 ```
-
-ssh:
-
-```bash
-ssh -p 2222 student@127.0.0.1
+setup       SSH-ключи + SSL + аккаунты
+check-mail  показать все письма
+clean-mail  очистить ящик
+send-test   отправить тестовое письмо
+demo        полная демонстрация инцидента
 ```

@@ -65,14 +65,28 @@ services:
       - ENABLE_AMAVIS=0
       - ENABLE_SPAMASSASSIN=0
       - ENABLE_CLAMAV=0
+      - PERMIT_DOCKER=network
+      - POSTFIX_INET_PROTOCOLS=ipv4
     ports:
-      - "25:25"
+      - "2525:25"
       - "143:143"
       - "993:993"
     volumes:
       - ./mail/config:/tmp/docker-mailserver/
       - ./mail/setup-mail.sh:/usr/local/bin/user-patches.sh:ro
     restart: always
+
+  notifier:
+    build: ./mail_notifier
+    container_name: mail_notifier
+    ports:
+      - "5000:5000"
+    environment:
+      - MAIL_SERVER=mail          
+      - MAIL_PORT=25
+      - MAIL_FROM=noreply@example.local
+    depends_on:
+      - mail                    
 
   ssh:
     image: lscr.io/linuxserver/openssh-server:latest
